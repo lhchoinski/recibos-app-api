@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.modelmapper.internal.bytebuddy.implementation.bind.annotation.Default;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -24,12 +25,17 @@ public class Usuario implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
+    private String nome;
     private String login;
+    private String email;
     private String password;
+    private Boolean status = true ;
     private UserRole role;
 
-    public Usuario(String login, String password, UserRole role){
+    public Usuario(String login, String nome,String email, String password, UserRole role){
+        this.nome = nome;
         this.login = login;
+        this.email = email;
         this.password = password;
         this.role = role;
     }

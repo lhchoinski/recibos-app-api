@@ -10,8 +10,10 @@ import java.util.UUID;
 public class UsuarioDTO {
     private UUID id;
     private String nome;
-    private String email;
     private String login;
-    private String password;
+    private String email;
+    private String role;
+    private Boolean status;
+
 
 }
